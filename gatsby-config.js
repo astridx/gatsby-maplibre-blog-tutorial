@@ -5,7 +5,6 @@ module.exports = {
     author: `Astrid Günther`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,7 +12,6 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
   ],
 }

@@ -1,12 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Map from "./map"
+import PostList from './postList'
 
 const Layout = ({ children }) => {
   return (
     <>
       <Map />
-      <main>{children}</main>
+      <div style={{ margin: '0 40px' }}>
+        <main>{children}</main>
+        <PostList />
+      </div>
     </>
   )
 }
