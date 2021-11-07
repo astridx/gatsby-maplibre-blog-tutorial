@@ -10,25 +10,7 @@ const mapContainerStyle = {
   height: "200px",
 }
 
-const places = [
-  {
-    name: "Spanien",
-    longitude: -0.687787,
-    latitude: 38.185674462487874,
-  },
-  {
-    name: "Germany",
-    longitude: 7.587787,
-    latitude: 50.7438,
-  },
-  {
-    name: "Frankreich",
-    longitude: 3.687787,
-    latitude: 45.753,
-  },
-]
-
-const Map = () => {
+const Map = props => {
   const mapContainerRef = useRef(null)
 
   const [map, setMap] = useState(null)
@@ -50,9 +32,9 @@ const Map = () => {
   useEffect(() => {
     if (!map) return
 
-    if (places.length !== 0) {
+    if (props.places && props.places.length !== 0) {
       const coords = []
-      places.forEach(place => {
+      props.places.forEach(place => {
         coords.push([place.longitude, place.latitude])
       })
       const feature = multiPoint(coords)
@@ -76,11 +58,11 @@ const Map = () => {
         duration: 2000,
       })
     }
-  }, [map])
+  }, [map, props.places])
 
   return (
     <div ref={mapContainerRef} style={mapContainerStyle}>
-      {places && map && <Markers map={map} places={places} />}
+      {props.places && map && <Markers map={map} places={props.places} />}
     </div>
   )
 }
