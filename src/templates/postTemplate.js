@@ -7,13 +7,13 @@ const PostTemplate = ({ data }) => {
   const html = data.markdownRemark.html
 
   return (
-    <Layout>
+    <>
       <div>
         <h1>{frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <Link to='/'>Back to Index</Link>
-    </Layout>
+      </>
   )
 }
 
